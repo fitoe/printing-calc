@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>飞图广告在线报价2.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="临沂广告公司,飞图广告,临沂画册价格,单页,名片,图册价格,临沂印刷报价,临沂印刷价格,临沂广告价格" />
+<meta name="description" content="临沂广告公司飞图广告印刷自助报价计算器" />
+<link href="http://cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.css" rel="stylesheet">
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="jquery-ui.css" />
+<link href="jquery.sidr.light.css" rel="stylesheet" type="text/css" />
+<link href="skins/square/aero.css" rel="stylesheet" type="text/css" />
+<link href="patternLock.css" rel="stylesheet" type="text/css" />
+<link href="jquery.ui.selectmenu.css" rel="stylesheet" type="text/css" />
+<link href="http://cdn.bootcss.com/bootstrap-switch/3.0.0rc/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+<link href="style_v1.css" rel="stylesheet" type="text/css" />
+<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.js"></script>
+<script src="http://cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery.sidr.min.js"></script>
+<script src="http://cdn.bootcss.com/iCheck/1.0.1/icheck.js"></script>
+<script type="text/javascript" src="patternLock.min.js"></script>
+<script type="text/javascript" src="jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="jQuery.print.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap-switch/3.0.0rc/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="function_v1.js"></script>
+</head>
+<!--
+变量规则：
+s设置	tbz铜版纸	105克重
+		sjz双胶
+        tzz特种纸
+   		y印刷费
+        d设计费
+        z装订费
+        m覆膜费
+        g工艺
+        p照片
+-->
+<body>
+<div id="main"> 
+  <!--左侧面板-->
+  <div id="left_panel">
+    <h2 class="gear">设置</h2>
+    <div class="left_according">
+      <h3>纸价/令</h3>
+      <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1">铜版</a></li>
+          <li><a href="#tabs-2">双胶</a></li>
+        </ul>
+        <div id="tabs-1">
+          <div class="list">105克
+            <input id="stbz105" type="text" value="310">
+            元</div>
+          <div class="list">128克
+            <input id="stbz128" type="text" value="345">
+            元</div>
+          <div class="list">157克
+            <input id="stbz157" type="text" value="430">
+            元</div>
+          <div class="list">200克
+            <input id="stbz200" type="text" value="530">
+            元</div>
+          <div class="list">250克
+            <input id="stbz250" type="text" value="745">
+            元</div>
+          <div class="list">300克
+            <input id="stbz300" type="text" value="825">
+            元</div>
+        </div>
+        <div id="tabs-2">
+          <div class="list">60克
+            <input id="ssjz60" type="text" value="310">
+            元</div>
+          <div class="list">70克
+            <input id="ssjz70" type="text" value="345">
+            元</div>
+          <div class="list">80克
+            <input id="ssjz80" type="text" value="389">
+            元</div>
+          <div class="list">100克
+            <input id="ssjz100" type="text" value="490">
+            元</div>
+          <div class="list">120克
+            <input id="ssjz120" type="text" value="720">
+            元</div>
+          <div class="list">140克
+            <input id="ssjz140" type="text" value="825">
+            元</div>
+        </div>
+      </div>
+      <h3>印刷费</h3>
+      <div>
+        <div class="list">起价
+          <input id="syq" type="text" value="170">
+          元/P</div>
+        <div class="list">每千本增加
+          <input id="syz" type="text" value="20">
+          元/P</div>
+        <div class="list">350线精度加收
+          <input id="sygq" type="text" value="50">
+          元/版</div>
+        <div class="list">业务员提成
+          <input id="syywtc" type="text" value="2">
+          %</div>
+         <div class="list">设计师提成
+          <input id="sysjstc" type="text" value="2">
+          %</div>
+        <div class="list">骑马钉损耗
+          <input id="sys" type="text" value="80">
+          张/版</div>
+        <div class="list">胶钉损耗
+          <input id="sys2" type="text" value="100">
+          张/版</div>
+        <div class="list">利润率
+          <input id="syl" type="text" value="15">
+          %</div>
+        <div class="list">32开画册价格比
+          <input id="sy32k" type="text" value="70">
+          %</div>
+      </div>
+      <h3>设计费</h3>
+      <div>
+        <div class="list">8P
+          <input id="sd8p" type="text" value="50">
+          元</div>
+        <div class="list">12P
+          <input id="sd12p" type="text" value="48">
+          元</div>
+        <div class="list">16P
+          <input id="sd16p" type="text" value="46">
+          元</div>
+        <div class="list">20P
+          <input id="sd20p" type="text" value="44">
+          元</div>
+        <div class="list">24P
+          <input id="sd24p" type="text" value="40">
+          元</div>
+        <div class="list">28P
+          <input id="sd28p" type="text" value="38">
+          元</div>
+        <div class="list">32P
+          <input id="sd32p" type="text" value="36">
+          元</div>
+        <div class="list">36P
+          <input id="sd36p" type="text" value="34">
+          元</div>
+        <div class="list">40P
+          <input id="sd40p" type="text" value="32">
+          元</div>
+        <div class="list">44P
+          <input id="sd44p" type="text" value="30">
+          元</div>
+        <div class="list">48P
+          <input id="sd48p" type="text" value="30">
+          元</div>
+        <div class="list">52P
+          <input id="sd52p" type="text" value="30">
+          元</div>
+        <div class="list">更多
+          <input id="sdmore" type="text" value="30">
+          元</div>
+      </div>
+      <h3>装订费</h3>
+      <div>
+        <div class="list">骑马钉
+          <input id="szq" type="text" value="0.02">
+          元/页</div>
+        <div class="list">横版加收
+          <input id="szhb" type="text" value="25">
+          %</div>
+        <div class="list">胶装
+          <input id="szj" type="text" value="0.6">
+          元/本</div>
+        <div class="list">锁线胶装
+          <input id="szs" type="text" value="0.8">
+          元/本</div>
+      </div>
+      <h3>覆膜费</h3>
+      <div>
+      	<div class="list">无膜
+          <input id="smn" type="text" value="0">
+          元/8开</div>
+        <div class="list">亮膜
+          <input id="sml" type="text" value="70">
+          元/8开</div>
+        <div class="list">亚膜
+          <input id="smy" type="text" value="80">
+          元/8开</div>
+        <div class="list">油胶加价
+          <input id="smyj" type="text" value="40">
+          %</div>
+      </div>
+      <h3>工艺</h3>
+      <div>
+        <div class="list">烫金银
+          <input id="sgtj" type="text" value="0.3">
+          元/CM²</div>
+        <div class="list">UV
+          <input id="sguv" type="text" value="0.3">
+          元/CM²</div>
+        <div class="list">烫金版费
+          <input id="sgtjbf" type="text" value="150">
+          元/个</div>
+        <div class="list">UV版费
+          <input id="sguvbf" type="text" value="150">
+          元/个</div>
+      </div>
+      <h3>照片</h3>
+      <div>
+        <div class="list">电分价格
+          <input id="spdf" type="text" value="50">
+          A4/面</div>
+        <div class="list">抠图价格
+          <input id="spkt" type="text" value="0.5">
+          元/张</div>
+        <div class="list">估算照片
+          <input id="spzp" type="text" value="9">
+          张/P</div>
+        <div class="list">起步价
+          <input id="spq" type="text" value="200">
+          元/次</div>
+        <div class="list">差旅费
+          <input id="spc" type="text" value="10">
+          元/公里</div>
+        <div class="list">上门价格
+          <input id="spsm" type="text" value="0.3">
+          元/张</div>
+        <div class="list">带灯上门
+          <input id="spddsm" type="text" value="0.4">
+          元/张</div>
+        <div class="list">棚拍价格
+          <input id="sppp" type="text" value="0.6">
+          元/张</div>
+        <div class="list">中难度加价
+          <input id="spznd" type="text" value="20">
+          %</div>
+        <div class="list">高难度加价
+          <input id="spgnd" type="text" value="40">
+          %</div>
+      </div>
+      <div id="ShowPriceList" ><img src="pagelist.png" alt="报价单"/>报价单</div>
+    </div>
+
+  </div>
+  <!--右侧面板-->
+  <div id="right_panel">
+    <div id="maintitle">
+      <div id="setting">设置</div>
+    </div>
+    
+    <div id="calc_panel"><!--计算器面板-->
+    
+    <div id="AreaCc" class="calc">尺寸：
+    	<input id="chicun_16" type="radio" name="chicun" value="c16" checked>
+        <label for="chicun_16">16开</label>
+        <input id="chicun_32" type="radio" name="chicun" value="c32"  />
+        <label for="chicun_32">32开</label>
+    </div>
+      <div class="clear"></div>
+      <div id="AreaFm" class="calc">封面：
+        <select id="fengmian">
+        <optgroup label="铜版纸">
+          <option value="stbz105" class="tbz">105克铜版纸</option>
+          <option value="stbz128" class="tbz">128克铜版纸</option>
+          <option value="stbz157" class="tbz">157克铜版纸</option>
+          <option value="stbz200" class="tbz">200克铜版纸</option>
+          <option value="stbz250" class="tbz">250克铜版纸</option>
+          <option value="stbz300" class="tbz">300克铜版纸</option>
+        </optgroup>
+        <optgroup label="双胶纸">
+          <option value="ssjz60" class="sjz">60克双胶纸</option>
+          <option value="ssjz70" class="sjz">70克双胶纸</option>
+          <option value="ssjz80" class="sjz">80克双胶纸</option>
+          <option value="ssjz100" class="sjz">100克双胶纸</option>
+          <option value="ssjz120" class="sjz">120克双胶纸</option>
+          <option value="ssjz140" class="sjz">140克双胶纸</option>
+        </optgroup>
+        </select>
+        <div class="Qpage"><ul><li  rel="stbz157">157</li><li rel="stbz200">200</li><li rel="stbz250">250</li></ul></div>
+      </div>
+      <div class="clear"></div>
+      <div id="AreaNy" class="calc">内页：
+        <select id="neiye">
+        </select>
+        <div class="Qpage"><ul><li rel="stbz157">157</li><li rel="stbz200">200</li><li rel="stbz250">250</li></ul></div>
+      </div>
+      <div class="clear"></div>
+      <div id="AreaNum" class="calc">数量：
+        <input id="num" type="text" value="2000">
+        本<div class="Qpage"><ul><li rel="1000">1</li><li rel="2000">2</li><li rel="3000">3</li><li rel="4000">4</li><li rel="5000">5</li></ul></div>
+        </div>
+        
+      <div class="clear"></div>
+      <div id="AreaP" class="calc">页码：
+        <input id="p" type="text" value="16">
+        P<div class="Qpage"><ul><li rel="8">8</li><li rel="12">12</li><li rel="16">16</li><li rel="20">20</li><li rel="24">24</li></ul></div>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">要求：
+        <input id="hb" type="checkbox"  />
+        <label for="hb" class="rtblk10">横版</label>
+        <input id="gq" type="checkbox" checked />
+        <label for="gq">高清</label>
+      </div>
+      
+      <div class="clear"></div>
+      <div class="calc">覆膜：
+        <input id="fumo_ym" type="radio" name="fumo" value="smy" checked>
+        <label for="fumo_ym" class="rtblk10">哑膜</label> 
+        <input id="fumo_lm" type="radio" name="fumo" value="sml"  />
+        <label for="fumo_lm" class="rtblk10">亮膜</label> 
+        <input id="fumo_no" type="radio" name="fumo" value="smn" >
+        <label for="fumo_no" class="rtblk10">无膜</label> 
+        <input id="fumo_yj" type="checkbox" checked value="smyj" />
+        <label for="fumo_lm">油胶</label>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">装订：
+        <input id="zhuangding_qmd" type="radio" name="zhuangding" value="szq" checked  />
+        <label for="zhuangding_qmd" class="rtblk10">骑马钉</label>
+        <input id="zhuangding_jz" type="radio" name="zhuangding" value="szj" />
+        <label for="zhuangding_jz" class="rtblk10">胶装</label>
+        <input id="zhuangding_sx" type="radio" name="zhuangding" value="szs"  />
+        <label for="zhuangding_sx">锁线胶装</label>
+      </div>
+      <div class="clear"></div>
+      <div class="calc"> 工艺：
+        <input id="stj" type="checkbox" value="sgtj"  />
+        <label for="stj" class="rtblk10">烫金银</label>
+        <input id="suv" type="checkbox" value="sguv"  />
+        <label for="suv">UV</label>
+      </div>
+      <div class="clear"></div>
+      <div id="sgtj_d" class="calc">烫金面积：
+        <input id="sgtj_n" value="1" />
+        厘米²</div>
+      <div id="sguv_d" class="calc"> UV 面积：
+        <input id="sguv_n" value="1" />
+        厘米²</div>
+      <div class="clear"></div>
+      <div class="calc">电分：
+        <input id="pdf" type="text" value="0">
+        A4面</div>
+      <div class="clear"></div>
+      <div class="calc">照片：
+        <input id="pnum" type="text" value="50">
+        张 <span id="auto_pic"><img src="count.png" title="自动估算"/></span> <span id="zero"><img src="zero.png" title="清零"/></span> </div>
+      <div class="clear"></div>
+      <div class="calc">
+        <div id="pll">难度：</div>
+        <div id="pl"></div>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">方式：
+        <input type="radio" id="psm" name="pway" value="spsm"  />
+        <label for="psm" class="rtblk10">上门</label>
+        <input type="radio" id="pdd" name="pway" value="spddsm"  />
+        <label for="pdd" class="rtblk10">带灯上门</label>
+        <input type="radio"  id="pp" name="pway" value="sppp" checked />
+        <label for="pp">棚拍</label>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">距离：
+        <input id="far" type="text">
+        公里</div>
+      <div class="clear"></div>
+    </div>
+    <div id="result">
+      <div id="div_ys">
+        <div id="detailpad">
+          <div class="leftbox"> <img src="printer.png" alt="印刷费"/>
+            <div id="cys" class="title">印刷费</div>
+            <div class="price"><span id="cys_n"></span>元</div>
+          </div>
+          <div class="rightbox">
+            <div class="group"><!--版费-->
+              <div class="item"><input type="checkbox" id="V_ban" checked></div>
+              <div class="num"><span id="cbf_n"></span> 元</div>
+            </div>
+            <div class="group"><!--封面-->
+              <div class="item" title="数量除8等于用纸张数，加上损耗，得出用纸总量再乘每张价格"><input type="checkbox" id="V_fm" checked></div>
+              <div class="num"><span id="cfm_n"></span>元</div>
+            </div>
+            <div class="group"><!--内页-->
+              <div class="item" title="P数-封面P，得到数量除32等于用纸张数，加上损耗，得出用纸总量再乘每张价格，再乘以p数比4（每个）"><input type="checkbox" id="V_ny" checked></div>
+              <div class="num"><span id="cny_n"></span>元</div>
+            </div>
+            <div class="group"><!--覆膜-->
+              <div class="item" title="数量*损耗*膜"><input type="checkbox" id="V_mo" checked></div>
+              <div class="num"><span id="cmo_n"></span>元</div>
+            </div>
+            <div class="group"><!--装订-->
+              <div class="item"><input type="checkbox" id="V_zd" checked></div>
+              <div class="num"><span id="czd_n"></span>元</div>
+            </div>
+            <div id="r_gy">
+              <div class="group"><!--工艺-->
+                <div class="item"><input type="checkbox" id="V_gy" checked></div>
+                <div class="num"><span id="cgy_n"></span>元</div>
+              </div>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <div class="leftbox"> <img src="camera.png" alt="拍照费"/>
+            <div id="cpz" class="title">拍照费</div>
+            <div class="price"><span id="cpz_n"></span>元</div>
+          </div>
+          <div class="rightbox">
+            <div id="df_d">
+              <div class="group"><!--电分-->
+                <div class="item"><input type="checkbox" id="V_df" checked></div>
+                <div class="num"> <span id="cdf_n"></span> 元</div>
+              </div>
+            </div>
+            <div class="group"><!--照片-->
+              <div class="item"><input type="checkbox" id="V_photo" checked></div>
+              <div class="num"> <span id="cp_n"></span> 元</div>
+            </div>
+            <div class="group"><!--抠图-->
+              <div class="item"><input type="checkbox" id="V_kt" checked></div>
+              <div class="num"> <span id="ck_n"></span> 元</div>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <div class="leftbox"> <img src="fly.png" alt="设计费"/>
+            <div id="clr" class="title">利润</div>
+            <div class="price"><span id="clr_n"></span>元</div>
+          </div>
+          <div class="rightbox">
+            <div class="group"><!--设计费-->
+              <div class="item"><input type="checkbox" id="V_design" checked></div>
+              <div class="num"><span id="cd_n"></span>元</div>
+            </div>
+            <div class="group"><!--印刷利润-->
+              <div class="item"><input type="checkbox" id="V_lr" checked></div>
+              <div class="num"><span id="cyslr_n"></span>元</div>
+            </div>
+<!--            <div class="group">
+              <div class="item">折扣</div>
+              <div class="num"><span id="czk_n"></span>元</div>
+            </div>-->
+          </div>
+          <div class="clear"></div>
+          <div id="coverthis"><img src="eye.png" alt="隐藏" title="隐藏"/></div>
+        </div>
+        <div id="patternContainer" title="滑动解锁查看详情"></div>
+        <div class="blank80"></div>
+      </div>
+      <div class="total"> <img src="bike.png" alt="合计"/>
+        <div class="total_rightbox">
+          <div class="group">
+            <div id="total"  class="total_item">总价：</div>
+            <div class="total_num"><span id="total_num"></span>元</div>
+          </div>
+          <div class="group">
+            <div id="danjia"  class="total_item">单价：</div>
+            <div class="total_num"><span id="danjia_num"></span>元</div>
+          </div>
+          <div class="group">
+            <div id="shoufu"  class="total_item">首付：</div>
+            <div class="total_num"><span id="shoufu_num"></span>元</div>
+          </div>
+          <div class="group">
+            <div id="yinqian"  class="total_item">印前：</div>
+            <div class="total_num"><span id="yinqian_num"></span>元</div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="debug"></div>
+    </div>
+  </div>
+</div>
+<!--报价单-->
+<div id="alltable" class="ui-corner-all">
+  <div class="title">飞图广告画册报价</div>
+  <div class="tables"></div>
+  <div class="date clear"></div>
+  <hr>
+  <div class="memo">
+  <h3>备注：</h3>
+  <ul>
+  <li>合同签订后须支付合同价的30%作为定金，合同期内单方面取消合作定金不退。</li>
+  <li>完稿时甲方须另行支付合同价的40%。</li>
+  <li>印刷完毕交货时甲方付清余款。</li>
+  <li>首次拍照免费，补拍每张10元。</li>
+  <li>货款不包含高清图片拷贝，如需拷贝须另付每张5元。</li>
+  <li>货款不包含设计稿。</li>
+  </ul>
+  </div>
+</div>
+<!--报价单-->
+<!--DOCK-->
+<!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253067354'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D1253067354' type='text/javascript'%3E%3C/script%3E"));</script>-->
+</body>
+</html>

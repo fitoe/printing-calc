@@ -1,0 +1,1242 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>飞图广告在线报价2.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="临沂广告公司,飞图广告,临沂画册价格,单页,名片,图册价格,临沂印刷报价,临沂印刷价格,临沂广告价格" />
+<meta name="description" content="临沂广告公司飞图广告印刷自助报价计算器" />
+<link href="css/themes/pace-theme-loading-bar.css" rel="stylesheet">
+<script src="js/pace.min.js"></script>
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<link href="css/jquery.sidr.light.css" rel="stylesheet" type="text/css" />
+<!--侧边栏-->
+<link href="css/skins/square/aero.css" rel="stylesheet" type="text/css" />
+<!--icheck选框样式-->
+<link href="css/patternLock.css" rel="stylesheet" type="text/css" />
+<!--滑动解锁-->
+<link href="css/jquery.ui.selectmenu.css" rel="stylesheet" type="text/css" />
+<!--下拉菜单样式-->
+<link href="css/bootstrap-switch.min.css" rel="stylesheet">
+<!--Bootstrap滑动开关样式-->
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<!--图标字体-->
+<link href="css/messenger.css" rel="stylesheet">
+<link href="css/messenger-theme-air.css" rel="stylesheet">
+<!--消息提示-->
+<link href="css/buttons.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!--Bootstrap 按钮样式-->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--主CSS-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery.sidr.min.js"></script><!--侧边栏-->
+<script src="js/icheck.min.js"></script><!--icheck选框-->
+<script type="text/javascript" src="js/patternLock.min.js"></script><!--滑动解锁-->
+<script type="text/javascript" src="js/jquery.ui.selectmenu.js"></script><!--下拉菜单样式-->
+<script type="text/javascript" src="js/jQuery.print.js"></script><!--打印插件-->
+<script src="js/bootstrap-switch.min.js"></script><!--Bootstrap滑动开关-->
+<script src="js/messenger.min.js"></script><!--消息提示-->
+<script src="js/bootstrap.min.js"></script><!--消息提示-->
+<script src="js/json2.js"></script><!--json-->
+<script src="js/jquery.editable.js"></script><!--json-->
+<script type="text/javascript" src="js/function.js"></script><!--主函数-->
+
+</head>
+<!--
+变量规则：
+s设置	tbz铜版纸	105克重
+		sjz双胶
+        tzz特种纸
+   		y印刷费
+        d设计费
+        z装订费
+        m覆膜费
+        g工艺
+        p照片
+-->
+<body>
+<div id="main"> 
+  <!--左侧面板-->
+  <div id="left_panel" class="form-horizontal"> 
+    <!--<button title="关闭" class="button button-box button-border button-rounded button-raised"  id="close-left"><i class="fa fa-floppy-o"></i></button>-->
+    <button id="close-left" title="关闭"  class="button button-circle  fr"><i class="fa fa-arrow-left"></i></button>
+    <div class="page-header">
+      <h1>设置 <small>Config</small></h1>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">选择配置文件：</div>
+      <div class="panel-body">
+        <div class="col-sm-7">
+          <select id="config_select" class="form-control">
+          </select>
+        </div>
+        <div class="btn-group col-sm-2 pull-right">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-folder-open"></i> <span class="sr-only">Toggle Dropdown</span> </button>
+          <ul class="dropdown-menu dropdown-menu-right" role="menu">
+            <li id="con_save" data-toggle="modal" data-target="#Modal_SaveConfig"><a href="#"><i class="fa fa-floppy-o"></i> 保存配置</a></li>
+            <li id="con_del" data-toggle="modal" data-target="#Modal_DelConfig"><a href="#"><i class="fa fa-trash"></i> 删除配置</a></li>
+            <li id="con_loaddefault" data-toggle="modal" data-target="#Modal_LoadDefault"><a href="#"><i class="fa fa-coffee"></i> 恢复默认配置</a></li>
+            <li class="divider"></li>
+            <li id="con_savethis" data-toggle="modal" data-target="#Modal_SaveThisConfig"><a href="#"><i class="fa fa-check"></i> 保存到当前配置</a></li>
+            <li id="con_load" data-toggle="modal" data-target="#Modal_LoadConfig"><a href="#"><i class="fa fa-share"></i> 导入配置文件</a></li>
+            <li id="con_load" data-toggle="modal" data-target="#Modal_DownConfig"><a href="#"><i class="fa fa-download"></i> 导出配置文件</a></li>
+            <li id="con_sync" data-toggle="modal" data-target="#Modal_SyncConfig" class="disabled"><a href="#"><i class="fa fa-skyatlas"></i> 同步配置</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Single button -->
+    
+    <div class="left_according">
+      <h3>纸价/吨</h3>
+      <div id="tabs"  class="form-horizontal">
+        <ul>
+          <li><a href="#tabs-1">铜版</a></li>
+          <li><a href="#tabs-2">双胶</a></li>
+        </ul>
+        <div id="tabs-1">
+          <div class="form-group">
+            <label for="stbz105" class="col-sm-8 control-label">105克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz105" value="5000" placeholder="5000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz128" class="col-sm-8 control-label">128克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz128" value="5000" placeholder="5000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz157" class="col-sm-8 control-label">157克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz157" value="5000" placeholder="5000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz200" class="col-sm-8 control-label">200克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz200" value="5000" placeholder="5000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz250" class="col-sm-8 control-label">250克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz250" value="5600" placeholder="5600">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz300" class="col-sm-8 control-label">300克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz300" value="5600" placeholder="5600">
+            </div>
+          </div>
+        </div>
+        <div id="tabs-2">
+          <div class="form-group">
+            <label for="ssjz60" class="col-sm-8 control-label">60克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz60" value="5600" placeholder="5600">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz70" class="col-sm-8 control-label">70克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz70" value="5600" placeholder="5600">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz80" class="col-sm-8 control-label">80克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz80" value="5600" placeholder="5600">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz100" class="col-sm-8 control-label">100克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz100" value="5600" placeholder="5600">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz120" class="col-sm-8 control-label">120克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz120" value="5600" placeholder="5600">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz140" class="col-sm-8 control-label">140克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz140" value="5600" placeholder="5600">
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>印刷费</h3>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label for="syq" class="col-sm-8 control-label">起价(元/P)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="syq" value="170" placeholder="170">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="syz" class="col-sm-8 control-label">每千本增加(元/P)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="syz" value="20" placeholder="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sygq" class="col-sm-8 control-label">350线精度加(收元/版)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sygq" value="50" placeholder="50">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="syywtc" class="col-sm-8 control-label">业务员提成(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="syywtc" value="2" placeholder="2">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sysjstc" class="col-sm-8 control-label">设计师提成(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sysjstc" value="2" placeholder="2">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sys" class="col-sm-8 control-label">骑马钉损耗(张/版)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sys" value="80" placeholder="80">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sys2" class="col-sm-8 control-label">胶钉损耗(张/版)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sys2" value="100" placeholder="100">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="syl" class="col-sm-8 control-label">利润率(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="syl" value="15" placeholder="15">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sy32k" class="col-sm-8 control-label">32开画册价格比(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sy32k" value="60" placeholder="60">
+          </div>
+        </div>
+      </div>
+      <h3>设计费(元/P)</h3>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label for="sd8p" class="col-sm-8 control-label">8P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd8p" value="50" placeholder="50">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd12p" class="col-sm-8 control-label">12P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd12p" value="48" placeholder="48">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd16p" class="col-sm-8 control-label">16P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd16p" value="46" placeholder="46">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd20p" class="col-sm-8 control-label">20P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd20p" value="44" placeholder="44">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd24p" class="col-sm-8 control-label">24P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd24p" value="42" placeholder="42">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd28p" class="col-sm-8 control-label">28P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd28p" value="40" placeholder="40">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd32p" class="col-sm-8 control-label">32P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd32p" value="40" placeholder="40">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd36p" class="col-sm-8 control-label">36P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd36p" value="40" placeholder="40">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd40p" class="col-sm-8 control-label">40P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd40p" value="40" placeholder="40">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd44p" class="col-sm-8 control-label">44P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd44p" value="40" placeholder="40">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd48p" class="col-sm-8 control-label">48P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd48p" value="40" placeholder="40">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sd52p" class="col-sm-8 control-label">52P</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sd52p" value="40" placeholder="40">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sdmore" class="col-sm-8 control-label">更多</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sdmore" value="40" placeholder="40">
+          </div>
+        </div>
+      </div>
+      <h3>装订费</h3>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label for="szq" class="col-sm-7 control-label">骑马钉(元/页)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="szq" value="0.02" placeholder="0.02">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="szhb" class="col-sm-7 control-label">横版加收(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="szhb" value="25" placeholder="25">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="szj" class="col-sm-7 control-label">胶装(元/本)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="szj" value="0.4" placeholder="0.4">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="szs" class="col-sm-7 control-label">锁线胶装(元/本)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="szs" value="0.6" placeholder="0.6">
+          </div>
+        </div>
+      </div>
+      <h3>覆膜费</h3>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label for="smn" class="col-sm-7 control-label">无膜(元/8开)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="smn" value="0" placeholder="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sml" class="col-sm-7 control-label">亮膜(元/8开)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sml" value="70" placeholder="70">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="smy" class="col-sm-7 control-label">亚膜(元/8开)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="smy" value="80" placeholder="80">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="smyj" class="col-sm-7 control-label">油胶加价(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="smyj" value="40" placeholder="40">
+          </div>
+        </div>
+      </div>
+      <h3>工艺</h3>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label for="sgtj" class="col-sm-7 control-label">烫金银(元/cm²)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sgtj" value="0.3" placeholder="0.3">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sguv" class="col-sm-7 control-label">UV(元/cm²)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sguv" value="0.3" placeholder="0.3">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sgtjbf" class="col-sm-7 control-label">烫金版费(元/个)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sgtjbf" value="150" placeholder="150">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sguvbf" class="col-sm-7 control-label">UV版费(元/个)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sguvbf" value="150" placeholder="150">
+          </div>
+        </div>
+      </div>
+      <h3>照片</h3>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label for="spdf" class="col-sm-7 control-label">电分价格(A4/面)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spdf" value="50" placeholder="50">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spkt" class="col-sm-7 control-label">抠图价格(元/张)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spkt" value="0.5" placeholder="0.5">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spzp" class="col-sm-7 control-label">估算照片(张/P)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spzp" value="12" placeholder="12">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spq" class="col-sm-7 control-label">起步价(元/次)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spq" value="200" placeholder="200">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spc" class="col-sm-7 control-label">差旅费(元/公里)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spc" value="10" placeholder="10">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spsm" class="col-sm-7 control-label">上门价格(元/张)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spsm" value="0.3" placeholder="0.3">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spddsm" class="col-sm-7 control-label">带灯上门(元/张)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spddsm" value="0.4" placeholder="0.4">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sppp" class="col-sm-7 control-label">棚拍价格(元/张)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sppp" value="0.6" placeholder="0.6">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spznd" class="col-sm-7 control-label">中难度加价(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spznd" value="20" placeholder="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spgnd" class="col-sm-7 control-label">高难度加价(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="spgnd" value="40" placeholder="40">
+          </div>
+        </div>
+      </div>
+      <h3>重量(g/㎡)</h3>
+      <div id="tabs-weight"  class="form-horizontal">
+        <ul>
+          <li><a href="#tabs-3">铜版</a></li>
+          <li><a href="#tabs-4">双胶</a></li>
+        </ul>
+        <div id="tabs-3">
+          <div class="form-group">
+            <label for="stbz105w" class="col-sm-8 control-label">105克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz105w" value="105" placeholder="105">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz128w" class="col-sm-8 control-label">128克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz128w" value="128" placeholder="128">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz157w" class="col-sm-8 control-label">157克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz157w" value="157" placeholder="157">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz200w" class="col-sm-8 control-label">200克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz200w" value="200" placeholder="200">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz250w" class="col-sm-8 control-label">250克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz250w" value="250" placeholder="250">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stbz300w" class="col-sm-8 control-label">300克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="stbz300w" value="300" placeholder="300">
+            </div>
+          </div>
+        </div>
+        <div id="tabs-4" >
+          <div class="form-group">
+            <label for="ssjz60w" class="col-sm-8 control-label">60克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz60w" value="60" placeholder="60">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz70w" class="col-sm-8 control-label">70克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz70w" value="70" placeholder="70">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz80w" class="col-sm-8 control-label">80克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz80w" value="80" placeholder="80">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz100w" class="col-sm-8 control-label">100克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz100w" value="100" placeholder="100">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz120w" class="col-sm-8 control-label">120克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz120w" value="120" placeholder="120">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssjz140w" class="col-sm-8 control-label">140克</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="ssjz140w" value="140" placeholder="140">
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="smyw" class="col-sm-8 control-label">哑膜重量</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="smyw" value="17" placeholder="17">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="smlw" class="col-sm-8 control-label">亮膜重量</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="smlw" value="17" placeholder="17">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="swjiao" class="col-sm-8 control-label">胶装重量(g/P)</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="swjiao" value="1" placeholder="1">
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>系统设置</h3>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label for="sname" class="col-sm-4 control-label">公司名</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="sname" value="" placeholder="飞图广告">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="scellphone" class="col-sm-4 control-label">手机</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="scellphone" value="" placeholder="13953968035">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sqq" class="col-sm-4 control-label">Q Q</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="sqq" value="" placeholder="137139327">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="saddress" class="col-sm-4 control-label">地址</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="saddress" value="" placeholder="临沂市金兰物流信息中心502">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="stitle" class="col-sm-4 control-label">展示标题</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="stitle" value="" placeholder="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spassword" class="col-sm-4 control-label">解锁密码</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="spassword" value="12369" placeholder="12369">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--右侧面板-->
+  <div id="right_panel">
+    <div id="maintitle">
+      <h1>
+        <div id="company_title">飞图广告</div>
+      </h1>
+      <!-- 计算器右上角菜单 -->
+      <div id="ctrl" class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-cog"></i> 菜单 <span class="caret"></span> </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="###" title="保存"  id="save"  data-toggle="modal" data-target="#myModal"><i class="fa fa-floppy-o"></i> 保存报价</a></li>
+          <li><a href="###" title="记录" id="history"><i class="fa fa-clock-o"></i> 报价历史</a></li>
+          <li><a href="###" title="报价单" id="PriceList"><i class="fa fa-file-o"></i> 价格清单</a></li>
+          <li><a href="###"  data-toggle="modal" data-target="#contract" title="打印合同" id="PriceList"><i class="fa fa-print"></i> 打印合同</a></li>
+          <li class="divider"></li>
+          <li><a href="#" title="设置" id="setting"><i class="fa fa-cog"></i> 设置</a></li>
+        </ul>
+      </div>
+      <!--<div id="ctrl" class="button-group">
+        <button title="保存" class="button button-box button-border button-rounded button-raised"  id="save"><i class="fa fa-floppy-o"></i></button>
+        <button title="记录" class="button button-box button-border button-rounded button-raised" id="history"><i class="fa fa-clock-o"></i></button>
+        <button title="报价单" class="button button-box button-border button-rounded button-raised" id="PriceList"><i class="fa fa-file-o"></i></button>
+        <button title="设置" class="button button-box button-border button-rounded  button-raised" id="setting"><i class="fa fa-cog"></i></button>
+      </div>
+      --> 
+    </div>
+    <div id="calc_panel"><!--计算器面板-->
+      
+      <div id="AreaCc" class="calc">尺寸：
+        <input id="chicun_16" type="radio" name="chicun" value="c16" checked>
+        <label for="chicun_16">16开</label>
+        <input id="chicun_32" type="radio" name="chicun" value="c32"  />
+        <label for="chicun_32">32开</label>
+      </div>
+      <div class="clear"></div>
+      <div id="AreaFm" class="calc">封面：
+        <select id="fengmian">
+          <optgroup label="铜版纸">
+          <option value="stbz105" class="tbz">105克铜版纸</option>
+          <option value="stbz128" class="tbz">128克铜版纸</option>
+          <option value="stbz157" class="tbz">157克铜版纸</option>
+          <option value="stbz200" class="tbz">200克铜版纸</option>
+          <option value="stbz250" class="tbz">250克铜版纸</option>
+          <option value="stbz300" class="tbz">300克铜版纸</option>
+          </optgroup>
+          <optgroup label="双胶纸">
+          <option value="ssjz60" class="sjz">60克双胶纸</option>
+          <option value="ssjz70" class="sjz">70克双胶纸</option>
+          <option value="ssjz80" class="sjz">80克双胶纸</option>
+          <option value="ssjz100" class="sjz">100克双胶纸</option>
+          <option value="ssjz120" class="sjz">120克双胶纸</option>
+          <option value="ssjz140" class="sjz">140克双胶纸</option>
+          </optgroup>
+        </select>
+        <div class="Qpage">
+          <ul>
+            <li  rel="stbz157" class="badge">157</li>
+            <li rel="stbz200" class="badge">200</li>
+            <li rel="stbz250" class="badge">250</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="AreaNy" class="calc">内页：
+        <select id="neiye">
+        </select>
+        <div class="Qpage">
+          <ul>
+            <li rel="stbz157" class="badge">157</li>
+            <li rel="stbz200" class="badge">200</li>
+            <li rel="stbz250" class="badge">250</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="AreaNum" class="calc">数量：
+        <input id="num" type="text" value="2000">
+        本
+        <div class="Qpage">
+          <ul>
+            <li rel="1000" class="badge">1</li>
+            <li rel="2000" class="badge">2</li>
+            <li rel="3000" class="badge">3</li>
+            <li rel="4000" class="badge">4</li>
+            <li rel="5000" class="badge">5</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="AreaP" class="calc">页码：
+        <input id="p" type="text" value="16">
+        P
+        <div class="Qpage">
+          <ul>
+            <li rel="8" class="badge">8</li>
+            <li rel="12" class="badge">12</li>
+            <li rel="16" class="badge">16</li>
+            <li rel="20" class="badge">20</li>
+            <li rel="24" class="badge">24</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">要求：
+        <input id="hb" type="checkbox"  />
+        <label for="hb" class="rtblk10">横版</label>
+        <input id="gq" type="checkbox" />
+        <label for="gq">高清</label>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">覆膜：
+        <input id="fumo_ym" type="radio" name="fumo" value="smy" checked>
+        <label for="fumo_ym" class="rtblk10">哑膜</label>
+        <input id="fumo_lm" type="radio" name="fumo" value="sml"  />
+        <label for="fumo_lm" class="rtblk10">亮膜</label>
+        <input id="fumo_no" type="radio" name="fumo" value="smn" >
+        <label for="fumo_no" class="rtblk10">无膜</label>
+        <input id="fumo_yj" type="checkbox" value="smyj" />
+        <label for="fumo_yj">油胶</label>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">装订：
+        <input id="zhuangding_qmd" type="radio" name="zhuangding" value="szq" checked  />
+        <label for="zhuangding_qmd" class="rtblk10">骑马钉</label>
+        <input id="zhuangding_jz" type="radio" name="zhuangding" value="szj" />
+        <label for="zhuangding_jz" class="rtblk10">胶装</label>
+        <input id="zhuangding_sx" type="radio" name="zhuangding" value="szs"  />
+        <label for="zhuangding_sx">锁线胶装</label>
+      </div>
+      <div class="clear"></div>
+      <!--<div class="calc"> 工艺：
+        <input id="stj" type="checkbox" value="sgtj"  />
+        <label for="stj" class="rtblk10">烫金银</label>
+        <input id="suv" type="checkbox" value="sguv"  />
+        <label for="suv">UV</label>
+      </div>-->
+      <div class="clear"></div>
+      <!--<div id="sgtj_d" class="calc">烫金面积：
+        <input id="sgtj_n" value="1" />
+        厘米²</div>
+      <div id="sguv_d" class="calc"> UV 面积：
+        <input id="sguv_n" value="1" />
+        厘米²</div>
+      <div class="clear"></div>-->
+      <div class="calc">电分：
+        <input id="pdf" type="text" value="0">
+        A4面</div>
+      <div class="clear"></div>
+      <div class="calc">照片：
+        <input id="pnum" type="text" value="50">
+        张<!-- <span id="auto_pic"><img src="count.png" title="自动估算"/></span> <span id="zero"><img src="zero.png" title="清零"/></span>--> </div>
+      <div class="clear"></div>
+      <div class="calc">
+        <div id="pll">难度：</div>
+        <div id="pl"></div>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">方式：
+        <input type="radio" id="psm" name="pway" value="spsm"  />
+        <label for="psm" class="rtblk10">上门</label>
+        <input type="radio" id="pdd" name="pway" value="spddsm"  />
+        <label for="pdd" class="rtblk10">带灯上门</label>
+        <input type="radio"  id="pp" name="pway" value="sppp" checked />
+        <label for="pp">棚拍</label>
+      </div>
+      <div class="clear"></div>
+      <div class="calc">距离：
+        <input id="far" type="text">
+        公里</div>
+      <div class="clear"></div>
+    </div>
+    <div id="result">
+      <div id="div_ys">
+        <div id="detailpad">
+          <div class="leftbox"> <img src="images/printer.png" alt="印刷费"/>
+            <div id="cys" class="title">印刷费</div>
+            <div class="price"><span id="cys_n"></span>元</div>
+          </div>
+          <div class="rightbox">
+            <div class="group"><!--版费-->
+              <div class="item">
+                <input type="checkbox" id="V_ban" checked>
+              </div>
+              <div class="num"><span id="cbf_n"></span> 元</div>
+            </div>
+            <div class="group"><!--封面-->
+              <div class="item">
+                <input type="checkbox" id="V_fm" checked>
+              </div>
+              <div class="num"><span id="cfm_n"></span>元</div>
+            </div>
+            <div class="group"><!--内页-->
+              <div class="item">
+                <input type="checkbox" id="V_ny" checked>
+              </div>
+              <div class="num"><span id="cny_n"></span>元</div>
+            </div>
+            <div class="group"><!--覆膜-->
+              <div class="item">
+                <input type="checkbox" id="V_mo" checked>
+              </div>
+              <div class="num"><span id="cmo_n"></span>元</div>
+            </div>
+            <div class="group"><!--装订-->
+              <div class="item">
+                <input type="checkbox" id="V_zd" checked>
+              </div>
+              <div class="num"><span id="czd_n"></span>元</div>
+            </div>
+            <div id="r_gy">
+              <div class="group"><!--工艺-->
+                <div class="item">
+                  <input type="checkbox" id="V_gy" checked>
+                </div>
+                <div class="num"><span id="cgy_n"></span>元</div>
+              </div>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <div class="leftbox"> <img src="images/camera.png" alt="拍照费"/>
+            <div id="cpz" class="title">拍照费</div>
+            <div class="price"><span id="cpz_n"></span>元</div>
+          </div>
+          <div class="rightbox">
+            <div id="df_d">
+              <div class="group"><!--电分-->
+                <div class="item">
+                  <input type="checkbox" id="V_df" checked>
+                </div>
+                <div class="num"> <span id="cdf_n"></span> 元</div>
+              </div>
+            </div>
+            <div class="group"><!--照片-->
+              <div class="item">
+                <input type="checkbox" id="V_photo" checked>
+              </div>
+              <div class="num"> <span id="cp_n"></span> 元</div>
+            </div>
+            <div class="group"><!--抠图-->
+              <div class="item">
+                <input type="checkbox" id="V_kt" checked>
+              </div>
+              <div class="num"> <span id="ck_n"></span> 元</div>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <div class="leftbox"> <img src="images/fly.png" alt="设计费"/>
+            <div id="clr" class="title">利润</div>
+            <div class="price"><span id="clr_n"></span>元</div>
+          </div>
+          <div class="rightbox">
+            <div class="group"><!--设计费-->
+              <div class="item">
+                <input type="checkbox" id="V_design" checked>
+              </div>
+              <div class="num"><span id="cd_n"></span>元</div>
+            </div>
+            <div class="group"><!--印刷利润-->
+              <div class="item">
+                <input type="checkbox" id="V_lr" checked>
+              </div>
+              <div class="num"><span id="cyslr_n"></span>元</div>
+            </div>
+            <!--            <div class="group">
+              <div class="item">折扣</div>
+              <div class="num"><span id="czk_n"></span>元</div>
+            </div>--> 
+          </div>
+          <div class="clear"></div>
+          <div id="coverthis"><img src="images/eye.png" alt="隐藏" title="隐藏"/></div>
+        </div>
+        <div id="patternContainer" title="滑动解锁查看详情"></div>
+        <div class="blank80"></div>
+      </div>
+      <div class="total"> <img src="images/bike.png" alt="合计"/>
+        <div class="total_rightbox">
+          <div class="group">
+            <div id="total"  class="total_item">总价：</div>
+            <div class="total_num"><span id="total_num"></span>元</div>
+          </div>
+          <div class="group">
+            <div id="danjia"  class="total_item">单价：</div>
+            <div class="total_num"><span id="danjia_num"></span>元</div>
+          </div>
+          <div class="group">
+            <div id="shoufu"  class="total_item">首付：</div>
+            <div class="total_num"><span id="shoufu_num"></span>元</div>
+          </div>
+          <div class="group">
+            <div id="yinqian"  class="total_item">印前：</div>
+            <div class="total_num"><span id="yinqian_num"></span>元</div>
+          </div>
+          <div class="savebtn text-center">
+            <button id="pricesave" type="button" class="btn btn-default">保 存</button>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div id="info"></div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--报价单-->
+<div id="alltable" class="ui-corner-all text-center row">
+  <button id="close-pricelist" title="关闭"  class="button button-circle  fl hidden-print"><i class="fa fa-arrow-right"></i></button>
+  <div class="clear"></div>
+  <h2>
+    <div class="title text-center">飞图广告画册报价</div>
+  </h2>
+  <div class="date clear"></div>
+  <div class="tables clearfix"></div>
+  <h4>
+    <div class="pricelist-contact"></div>
+  </h4>
+  <button id='printtable' class="btn btn-primary mar-top20 mar-buttom80 hidden-print"><i class="fa fa-print"></i> 打 印</button>
+  <div class="clear"></div>
+  <hr>
+  <div class="memo">
+    <h3>备注：</h3>
+    <ul>
+      <li>合同签订后须支付合同价的30%作为定金，合同期内单方面取消合作定金不退。</li>
+      <li>完稿时甲方须另行支付合同价的40%。</li>
+      <li>印刷完毕交货时甲方付清余款。</li>
+      <li>首次拍照免费，补拍每张10元。</li>
+      <li>货款不包含高清图片拷贝，如需拷贝须另付每张5元。</li>
+      <li>货款不包含设计稿。</li>
+    </ul>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253067354'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D1253067354' type='text/javascript'%3E%3C/script%3E"));</script> 
+  </div>
+</div>
+
+<!--报价单-->
+
+<div id="history_panel">
+  <button id="close-history" title="关闭"  class="button button-circle  fl"><i class="fa fa-arrow-right"></i></button>
+  <br>
+  <div class="page-header">
+    <h1>历史记录 <small>History</small></h1>
+  </div>
+  <div id="history_list" class="list-group"> </div>
+</div>
+<!--添加历史记录-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">保存报价记录</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="customer"><i class="fa fa-user"></i> 客户名称</label>
+            <input type="text" class="form-control" id="customer" placeholder="客户名称">
+          </div>
+          <div class="form-group">
+            <label for="price"><i class="fa fa-glass"></i> 单价</label>
+            <input type="text" class="form-control" id="price" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="note"><i class="fa fa-pencil-square-o"></i> 备注</label>
+            <input type="text" class="form-control" id="note" placeholder="备注">
+          </div>
+          <div class="form-group">
+            <label for="note"><i class="fa fa-star"></i> 规格</label>
+            <p class="form-control-static" id="guige"></p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+        <button id="history_submit" type="button" class="btn btn-primary">保 存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 下载配置文件对话框 -->
+<div class="modal fade" id="Modal_DownConfig" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-download"></i> 下载配置文件到本地</h4>
+      </div>
+      <div class="modal-body">
+        <form id="downconfig_form" target="_blank" action="download_config.php" method="post">
+          <div class="input-group"> <span class="input-group-addon">文件名</span>
+            <input type="text" class="form-control" id="downform_filename" name="filename" placeholder="">
+            <span class="input-group-addon">.ini</span> </div>
+          <input type="hidden" name="data" id="downform_data">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+        <button id="btn_DownConfig" type="button" class="btn btn-primary">下 载</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 保存配置文件对话框 -->
+<div class="modal fade" id="Modal_SaveConfig" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-floppy-o"></i> 保存为配置文件</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="ConfigName">配置名称</label>
+            <input type="text" class="form-control" id="ConfigName" placeholder="">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+        <button id="btn_SaveConfig" type="button" class="btn btn-primary">保 存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 载入配置文件对话框 -->
+<div class="modal fade" id="Modal_LoadConfig" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-floppy-o"></i> 导入配置文件</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="exampleInputEmail2">导入名称</label>
+            <input type="text" class="form-control" id="LoadConfigName">
+          </div>
+          <div class="input-group">
+            <input id="LoadFileInput" type="text" class="form-control" placeholder="选择文件...">
+            <input id="LoadFileBox" type="file" class=" hidden" >
+            <span class="input-group-btn">
+            <button id="LoadFileBtn" class="btn btn-default" type="button"><i class="fa fa-folder-open"></i></button>
+            </span> </div>
+          <!-- /input-group --> 
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+        <button id="btn_LoadConfig" type="button" class="btn btn-primary">导 入</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--恢复默认配置-->
+<div class="modal fade" id="Modal_LoadDefault" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-coffee"></i> 恢复默认配置</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="ConfigName">默认配置将覆盖当前内容。</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+        <button id="btn_LoadDefaultConfig" type="button" class="btn btn-primary">确 定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--删除当前配置-->
+<div class="modal fade" id="Modal_DelConfig" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i> 删除当前配置</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>当前选中的配置将从列表中被删除。</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+        <button id="btn_DelConfig" type="button" class="btn btn-primary">删 除</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--保存到当前配置-->
+<div class="modal fade" id="Modal_SaveThisConfig" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-floppy-o"></i> 保存到当前配置</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label id="label_savethisconfig" >。</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+        <button id="btn_SaveThisConfig" type="button" class="btn btn-primary">保 存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--切换配置文件-->
+<div class="modal fade" id="Modal_ChangeConfig" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-exchange"></i> 切换配置文件</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="ConfigName">切换配置文件会丢失现在的设置。</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+        <button id="btn_ChangeConfig" type="button" class="btn btn-primary">切 换</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--空白历史记录模版-->
+<div id="blank_history" class="hidden"> <a href="#" class="list-group-item"> <i class="fa fa-book pull-left fa-5x"></i>
+  <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <p class="list-group-item-heading"><strong><span class="name"></span></strong><code class="pull-right"><i class="fa fa-clock-o"></i> <span class="time"></span></code>
+    <button type="button"  class="pricebtn btn btn-default btn-xs pull-right"><i class="fa fa-jpy"></i> <span class="price" title=""></span></button>
+  </p>
+  <div class="total hidden"></div>
+  <div class="lirun hidden"></div>
+  <p class="list-group-item-text content"></p>
+  <p class="list-group-item-text small"><i class="fa fa-star-o"></i> <span class="note"></span></p>
+  </a> </div>
+<!--合同打印-->
+
+<div id="contract" class="modal fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="pagelogo"><img src="images/logo.svg" alt="飞图广告标志" height="90" width="100%"/></div>
+        <div id="pagetitle">飞图广告业务合同</div>
+        <table class="table table-bordered table-hover" cellspacing="1" cellpadding="0">
+          <tr>
+            <td ><div class="contractlabel">公司名称：</div>
+            <div class="contractdiv editable" id="kh"></div></td>
+            <td ><div class="contractlabel">产品名称：</div>
+              <div class="contractdiv" id="cpmc"></div></td>
+          </tr>
+          <tr>
+            <td><div class="contractlabel">封面规格：</div>
+              <div class="contractdiv" id="fmgg"></div></td>
+            <td><div class="contractlabel">内文规格：</div>
+              <div class="contractdiv" id="nwgg"></div></td>
+          </tr>
+          <tr>
+            <td><div class="contractlabel">封面覆膜：</div>
+              <div class="contractdiv" id="fm"></div></td>
+            <td><div class="contractlabel">装订方式：</div>
+              <div class="contractdiv" id="zdfs"></div></td>
+          </tr>
+          <tr>
+            <td><div class="contractlabel">页码总数：</div>
+              <div class="contractdiv" id="zys"></div></td>
+            <td><div class="contractlabel">印刷数量：</div>
+              <div class="contractdiv" id="yssl"></div></td>
+          </tr>
+          <tr>
+            <td><div class="contractlabel">首付定金：</div>
+              <div class="contractdiv" id="dj"></div></td>
+              <td><div class="contractlabel">印前另付：</div>
+              <div class="contractdiv" id="yqyf"></div></td>
+          </tr>
+          <tr>
+            
+            <td><div class="contractlabel">货款总额：</div>
+              <div class="contractdiv editable" id="hkze"></div></td>
+              <td><div class="contractlabel">人民币大写:</div>
+              <div class="contractdiv" id="dx"></div></td>
+          </tr>
+
+          <tr>
+            <td colspan="2"><div class="contractlabel">补充说明:</div>
+              <div class="contractdiv editable" id="sm"></div></td>
+          </tr>
+        </table>
+        <div id="bcsm">
+　　规格如有变更，另行签订合同后本合同自动作废，一式两份甲乙双方各执一份。<br>
+　　甲方有权对印刷品的最终完稿进行审阅校对，并对稿件内容的正确性负责。乙方保证印刷成品颜色与电子稿的颜色值色差在15%以内。<br>
+　　本合同签订时，甲方向乙方支付<span id="sf"></span>作为定金，合同期内单方面取消合作定金不退。定稿时，甲方另行支付<span id="dg"></span>，印刷完毕交货时甲方付清余款<span id="yk"></span>。
+        </div>
+        <div id="jf">甲方：</div>
+        <div id="yf">乙方：</div>
+        <div id="sxrq">生效日期：
+          <div id="sxrq"></div>
+        </div>
+        <div id="contact"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+        <button id="PrintContract" type="button" class="btn btn-primary">打 印</button>
+      </div>
+    </div>
+  </div>
+  <!-- /.modal-content --> 
+</div>
+<!-- /.modal --> 
+
+<!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253067354'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D1253067354' type='text/javascript'%3E%3C/script%3E"));</script>-->
+</body>
+</html>
