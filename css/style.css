@@ -13,7 +13,7 @@
 #right_panel a,#right_panel input{ font:normal 14px "微软雅黑";}
 select{ width:200px;}
 #maintitle{ height:70px;  line-height:70px; height:70px; vertical-align:middle; margin-top:20px;}
-#company_title{ font-family: "方正大标宋简体","微软雅黑","黑体"; background: url(logo.png) 10px center no-repeat; min-width:400px; height:70px; line-height:70px; vertical-align:middle; float:left;}
+#company_title{ font-family: "方正大标宋简体","微软雅黑","黑体"; background: url(images/logo.png) 10px center no-repeat; min-width:400px; height:70px; line-height:70px; vertical-align:middle; float:left;}
 /*历史记录面板*/
 #history_panel{ width:650px; float:left; background:white; padding:10px 10px 10px 5px; display:none;}
 #history_list p{ line-height:20px;}
@@ -147,7 +147,7 @@ H3{ font:bold 24px "宋体";}
 
 /*报价单样式*/
 input{ }
-#pagelogo{ height:90px; width:100%; background:url(logo.svg) center center no-repeat; background-size:auto 90px; }
+#pagelogo{ height:90px; width:100%; background:url(../images/logo.svg) center center no-repeat; background-size:auto 90px; }
 #pagetitle{font:bold 35px "宋体"; text-align:center; margin:25px 0 40px 30px;}
 #bcsm{ font:normal 14px/26px "宋体";margin-bottom:10px;}
 #jf, #yf{ font:bold 22px/50px "宋体";}
