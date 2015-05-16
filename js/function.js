@@ -9,13 +9,14 @@ $(document).ready(function() {
 	Zhilist();		//把封面的纸张列表给内页
 	Init();
 	Result();
-	
+
 $("#contract .editable").editable({
 			editby: "click",
 			type: "text",
 			submitBy: "blur",
 /*			onSubmit:function(){}*/
 			});
+
 			
 			
 //保存历史记录对话框显示的时候
@@ -34,7 +35,8 @@ $("#history_submit").on( "click", function() {
 
 //修改总价后改变人民币大写
 $("body").on( "blur","#hkze input", function() {
-	$("#dx").text(upDigit($(this).val().GetNum()));
+	HetongPrice($(this).val().GetNum());
+	PriceEditable();
     });
 
 
@@ -114,7 +116,7 @@ $("#btn_DownConfig").on( "click", function() {
 //载入默认配置文件对话框
 $("#btn_LoadDefaultConfig").on( "click", function() {
 		LoadConfig(DefaultConfig());
-		$("#company_title").css({"background": "url(logo.png) 10px center no-repeat" });
+		$("#company_title").css({"background": "url(../images/logo.png) 10px center no-repeat" });
 		$("#company_title").text("");
 	  $("#Modal_LoadDefault").modal('hide');
     });
@@ -660,6 +662,15 @@ function CheckZD(){
 	$("input[id='"+GetidfromZd(ChangeZD($("#neiye").val(),$("#p").val()))+"']").iCheck('check');
 	}
 
+//让合同总价内容可编辑
+function PriceEditable(){
+	$("#hkze").editable({
+			editby: "click",
+			type: "text",
+			submitBy: "blur",
+/*			onSubmit:function(){}*/
+			});
+	}
 
 //计算器初始值
 function Init(){
@@ -679,7 +690,7 @@ function SetTitle(){
 		$("#company_title").text(stitle);
 		document.title=stitle;
 	} else {
-		$("#company_title").css({"background": "url(logo.png) 10px center no-repeat" });
+		$("#company_title").css({"background": "url(../images/logo.png) 10px center no-repeat" });
 		$("#pagelogo").show();
 		$("#company_title").text("");
 			}
@@ -933,6 +944,21 @@ function Getprice(pnum){
 	return Wdanjia;
 	}
 
+//更新合同价格
+function HetongPrice(price){
+	//更新合同上价格
+	$("#pagetitle").text(sname+"业务合同");
+	$("#hkze").text("￥"+price+"元");//货款总额
+	var dingjin=parseInt(price*0.003)*100;
+	$("#dj,#sf").text("￥"+dingjin+"元");//定金
+	var yufu=parseInt(price*0.004)*100;
+	$("#yqyf,#dg").text("￥"+yufu+"元");//印前预付
+	$("#yk").text("￥"+(price-dingjin-yufu)+"元");//尾款
+	$("#dx").text(upDigit(price));//人民币大写
+	}
+
+
+
 function Result(){
 	GetCalcpad();		//获取计算器面板内容
 	Getprice(pnums);			//计算价格
@@ -955,17 +981,8 @@ function Result(){
 	$("#clr_n").text(Wlirun);//利润
 	$("#cp_n").text(Wphoto);//拍照
 	$("#cpz_n").text(Wpaizhao);//拍照总费用
+	HetongPrice(Wtotal);
 	
-	//更新合同上价格
-	$("#pagetitle").text(sname+"业务合同");
-	
-	$("#hkze").text("￥"+Wtotal+"元");//货款总额
-	var dingjin=parseInt(Wtotal*0.003)*100;
-	$("#dj,#sf").text("￥"+dingjin+"元");//定金
-	var yufu=parseInt(Wtotal*0.004)*100;
-	$("#yqyf,#dg").text("￥"+yufu+"元");//印前预付
-	$("#yk").text("￥"+(Wtotal-dingjin-yufu)+"元");//尾款
-	$("#dx").text(upDigit(Wtotal));//人民币大写
 	//选择重量运输交通工具
 	if(Wweight<50){
 		car="fa-bicycle";
