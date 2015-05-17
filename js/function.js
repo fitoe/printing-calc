@@ -9,15 +9,24 @@ $(document).ready(function() {
 	Zhilist();		//把封面的纸张列表给内页
 	Init();
 	Result();
-
-$("#contract .editable").editable({
+//修改总价后改变人民币大写
+$("#hkze").editable({
 			editby: "click",
 			type: "text",
 			submitBy: "blur",
-/*			onSubmit:function(){}*/
+			onSubmit:function(){HetongPrice($(this).text().GetNum());}
 			});
 
-			
+//编辑客户名称后修改合同署名
+$("#kh").editable({
+			editby: "click",
+			type: "text",
+			submitBy: "blur",
+			onSubmit:function(){
+				$("#jf span").text("("+$(this).text()+")");
+				$("#yf span").text("("+sname+")");
+				}
+			});
 			
 //保存历史记录对话框显示的时候
 $('#myModal').on('shown.bs.modal', function () {
@@ -33,11 +42,7 @@ $("#history_submit").on( "click", function() {
       addUser();
     });
 
-//修改总价后改变人民币大写
-$("body").on( "blur","#hkze input", function() {
-	HetongPrice($(this).val().GetNum());
-	PriceEditable();
-    });
+
 
 
 //载入配置文件上传按钮
@@ -955,6 +960,7 @@ function HetongPrice(price){
 	$("#yqyf,#dg").text("￥"+yufu+"元");//印前预付
 	$("#yk").text("￥"+(price-dingjin-yufu)+"元");//尾款
 	$("#dx").text(upDigit(price));//人民币大写
+	
 	if(!syzf){		//印前再付为0则隐藏相关条款
 		$("#zftext").hide();
 		} else {
