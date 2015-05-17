@@ -1,4 +1,11 @@
 <!doctype html>
+<!--
+fitoe.com Co.,Ltd
+Printing Calc
+Open source
+fork on ghthub:
+https://github.com/fitoe/printing-calc
+-->
 <html>
 <head>
 <meta charset="utf-8">
@@ -231,6 +238,19 @@ s设置	tbz铜版纸	105克重
             <input type="text" class="form-control" id="sy32k" value="60" placeholder="60">
           </div>
         </div>
+        <div class="form-group">
+          <label for="sysf" class="col-sm-8 control-label">货款首付(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="sysf" value="30" placeholder="30">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="syzf" class="col-sm-8 control-label">印前再付(%)</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="syzf" value="40" placeholder="40">
+          </div>
+        </div>
+        
       </div>
       <h3>设计费(元/P)</h3>
       <div class="form-horizontal">
@@ -1218,7 +1238,7 @@ s设置	tbz铜版纸	105克重
         <div id="bcsm">
 　　规格如有变更，另行签订合同后本合同自动作废，一式两份甲乙双方各执一份。<br>
 　　甲方有权对印刷品的最终完稿进行审阅校对，并对稿件内容的正确性负责。乙方保证印刷成品颜色与电子稿的颜色值色差在15%以内。<br>
-　　本合同签订时，甲方向乙方支付<span id="sf"></span>作为定金，合同期内单方面取消合作定金不退。定稿时，甲方另行支付<span id="dg"></span>，印刷完毕交货时甲方付清余款<span id="yk"></span>。
+　　<span id="sftext">本合同签订时，甲方向乙方支付<span id="sf"></span>作为定金。</span><span id="zftext">定稿时，甲方另行支付<span id="dg"></span>，</span>合同期内单方面取消合作定金不退。印刷完毕交货时甲方付清余款<span id="yk"></span>。
         </div>
         <div id="jf">甲方：</div>
         <div id="yf">乙方：</div>

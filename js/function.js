@@ -949,14 +949,24 @@ function HetongPrice(price){
 	//更新合同上价格
 	$("#pagetitle").text(sname+"业务合同");
 	$("#hkze").text("￥"+price+"元");//货款总额
-	var dingjin=parseInt(price*0.003)*100;
+	var dingjin=parseInt(price*sysf/100)*100;
 	$("#dj,#sf").text("￥"+dingjin+"元");//定金
-	var yufu=parseInt(price*0.004)*100;
+	var yufu=parseInt(price*syzf/100)*100;
 	$("#yqyf,#dg").text("￥"+yufu+"元");//印前预付
 	$("#yk").text("￥"+(price-dingjin-yufu)+"元");//尾款
 	$("#dx").text(upDigit(price));//人民币大写
+	if(!syzf){		//印前再付为0则隐藏相关条款
+		$("#zftext").hide();
+		} else {
+		$("#zftext").show();
+			}
+	
+	if(!sysf){		//货款首付为0则隐藏相关条款
+		$("#sftext").hide();
+		} else {
+		$("#sftext").show();
+			}
 	}
-
 
 
 function Result(){
@@ -976,8 +986,8 @@ function Result(){
 	$("#cyslr_n").text(WYSLR);//印刷利润
 	$("#total_num").text(Wtotal);	//总价
 	$("#danjia_num").text(Wdanjia);//单价
-	$("#shoufu_num").text(parseInt(Wtotal*0.003)*100);//首付
-	$("#yinqian_num").text(parseInt(Wtotal*0.004)*100);//印前
+	$("#shoufu_num").text(parseInt(Wtotal*sysf/100)*100);//首付
+	$("#yinqian_num").text(parseInt(Wtotal*syzf/100)*100);//印前
 	$("#clr_n").text(Wlirun);//利润
 	$("#cp_n").text(Wphoto);//拍照
 	$("#cpz_n").text(Wpaizhao);//拍照总费用
@@ -1268,8 +1278,11 @@ function Getsettings(){
 	syl=$("#syl").val();	//利润率
 	sy32k=$("#sy32k").val()/100;
 	sygq=$("#sygq").val();	//高清加价
-	syywtc=$("#syywtc").val()/100;	
-	sysjstc=$("#sysjstc").val()/100;
+	syywtc=$("#syywtc").val()/100;	//业务提成
+	sysjstc=$("#sysjstc").val()/100;	//设计师提成
+	sysf=$("#sysf").val()/100;	//货款首付
+	syzf=$("#syzf").val()/100;//印前再付
+	
 	//设计费
 	sd8p=$("#sd8p").val();
 	sd16p=$("#sd16p").val();
