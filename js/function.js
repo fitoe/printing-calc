@@ -917,7 +917,9 @@ function Rweight(){
 	}
 //书脊厚度
 function Rshuji(){
-	x=arr_shuji[shuji]*(pp-4)/2+1;
+	//x=arr_shuji[shuji]*(pp-4)/2+1;	//根据纸张厚度计算（已废弃）
+	//简单方法：克重/1000*张数
+	x=$("#neiye").val().GetNum()/1000*pp/2;
 	//x=(pp-4)/2*0.001346*arr_shuji[shuji];
 	if(pzdw!=="szq"){
 		return x.toFixed(1);
@@ -1335,7 +1337,7 @@ function Getsettings(){
 	spgnd=$("#spgnd").val();	//高难度
 	
 	//书脊厚度
-	arr_shuji=new Array();
+/*	arr_shuji=new Array();
 	arr_shuji["stbz105sj"]=0.085;
 	arr_shuji["stbz128sj"]=0.105;
 	arr_shuji["stbz157sj"]=0.135;
@@ -1343,7 +1345,7 @@ function Getsettings(){
 	arr_shuji["stbz250sj"]=0.23;
 	arr_shuji["stbz300sj"]=0.34;
 	arr_shuji["ssjz80sj"]=0.1;
-	arr_shuji["ssjz100sj"]=0.13;
+	arr_shuji["ssjz100sj"]=0.13;*/
 	
 	
 	
