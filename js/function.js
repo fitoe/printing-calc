@@ -17,6 +17,14 @@ $("#hkze").editable({
 			onSubmit:function(){HetongPrice($(this).text().GetNum());}
 			});
 
+//合同补充说明可编辑
+$("#sm").editable({
+			editby: "click",
+			type: "text",
+			submitBy: "blur",
+			onSubmit:function(){}
+			});
+			
 //编辑客户名称后修改合同署名
 $("#kh").editable({
 			editby: "click",
@@ -27,7 +35,8 @@ $("#kh").editable({
 				$("#yf span").text("("+sname+")");
 				}
 			});
-			
+
+
 //保存历史记录对话框显示的时候
 $('#myModal').on('shown.bs.modal', function () {
 		$("#customer").val("");
